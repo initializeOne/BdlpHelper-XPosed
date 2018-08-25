@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BdlpHelper</string>
+    <string name="readme2">看名称知功能,用于Bdlp 2.6.0版本\n解除GPS,运动模拟器检测与系统环境异常检测</string>
+    <string name="github"><a>Project: https://github.com</a></string>
+</resources>
