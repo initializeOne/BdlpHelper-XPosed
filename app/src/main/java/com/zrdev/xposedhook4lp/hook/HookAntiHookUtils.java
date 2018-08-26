@@ -21,38 +21,37 @@ public class HookAntiHookUtils{
     public static void handleLoadPackageParam(ClassLoader classLoader) throws Throwable{
         Class clazz = classLoader.loadClass(ClazzPath0);
         try{
+            XposedHelpers.findAndHookMethod(clazz, Method0_0,
+                    new XC_MethodHook() {
+                        protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                            super.beforeHookedMethod(param);
+                        }
 
+                        protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                            param.setResult(false);
+                            ZRLog.i(TAG, "Method0_0(detect_1) return value has been changed.");
+                        }
+                    }
+            );
         }catch (Exception e){
-
+            e.printStackTrace();
         }
-        XposedHelpers.findAndHookMethod(clazz, Method0_0,
-                new XC_MethodHook() {
-                    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                        super.beforeHookedMethod(param);
-                    }
 
-                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                        param.setResult(false);
-                        ZRLog.i(TAG, "Method0_0(detect_1) return value has been changed.");
-                    }
-                }
-        );
         try{
+            XposedHelpers.findAndHookMethod(clazz, Method0_1,
+                    new XC_MethodHook() {
+                        protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                            super.beforeHookedMethod(param);
+                        }
 
+                        protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                            param.setResult(false);
+                            ZRLog.i(TAG, "Method0_1(detect_2) return value has been changed.");
+                        }
+                    }
+            );
         }catch (Exception e){
-
+            e.printStackTrace();
         }
-        XposedHelpers.findAndHookMethod(clazz, Method0_1,
-                new XC_MethodHook() {
-                    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                        super.beforeHookedMethod(param);
-                    }
-
-                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                        param.setResult(false);
-                        ZRLog.i(TAG, "Method0_1(detect_2) return value has been changed.");
-                    }
-                }
-        );
     }
 }
